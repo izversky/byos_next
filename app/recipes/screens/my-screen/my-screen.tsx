@@ -30,7 +30,6 @@ function toNum(v: unknown): number | null {
 function formatPrice(v: number | null) {
   if (v == null) return "N/A";
   return v.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 }
@@ -197,6 +196,52 @@ export default function Screen({
             return (
               <div
                 key={(t as any).id ?? idx}
+                className="flex items-center gap-2"
+              >
+                <div className="w-7 h-7">
+                  {t?.symbol === "BTC" ? (
+                    <BitcoinIcon
+                      className="text-gray-500"
+                      width="100%"
+                      height="auto"
+                    />
+                  ) : t?.symbol === "MET" ? (
+                    <MeteoraIcon
+                      className="text-gray-500"
+                      width="100%"
+                      height="auto"
+                    />
+                  ) : (
+                    <SolIcon
+                      className="text-gray-500"
+                      width="100%"
+                      height="auto"
+                    />
+                  )}
+                </div>
+                <div className="font-inter text-[32px] leading-none text-gray-900">
+                  ${formatPrice(priceUsd)}
+                </div>
+                <span className="font-inter text-[16px] text-nowrap rounded-md border border-gray-500 text-gray-500 py-[1] px-[3]">
+                  {arrow} {formatPct(change24hPct)}%
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Crypto prices */}
+        {/* <div className="flex flex-col justify-around gap-3">
+          {safeTokens.map((t, idx) => {
+            const priceUsd = toNum((t as any).priceUsd);
+            const change24hPct = toNum((t as any).change24hPct);
+
+            const up = (change24hPct ?? 0) >= 0;
+            const arrow = up ? "↑" : "↓";
+
+            return (
+              <div
+                key={(t as any).id ?? idx}
                 className="flex items-center gap-4"
               >
                 {t?.symbol === "BTC" ? (
@@ -225,7 +270,7 @@ export default function Screen({
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </PreSatori>
   );
