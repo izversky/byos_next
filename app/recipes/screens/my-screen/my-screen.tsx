@@ -175,7 +175,7 @@ export default function Screen({
             </div>
           </div>
           <div className="flex flex-col items-end">
-            <div className="text-[32px] leading-none text-gray-700  font-inter">
+            <div className="text-[32px] leading-none text-black  font-inter">
               {formatDateRu(new Date())}
             </div>
             <div className="text-base text-black font-geneva9">
