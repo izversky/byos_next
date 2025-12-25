@@ -117,57 +117,57 @@ export default function Screen({
                   Ощущается как {weather?.feelsLike}°C
                 </div>
               </div>
-              <div className="flex items-center gap-5">
-                <div className="flex flex-col gap-2 ml-3">
+              <div className="flex items-center gap-8">
+                <div className="flex flex-col gap-1 ml-3">
                   <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                    <div className="w-5 h-5 text-gray-500">
                       <TempUp />
                     </div>
-                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.highTemp}°
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                    <div className="w-5 h-5 text-gray-500">
                       <TempDown />
                     </div>
-                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.lowTemp}°
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                    <div className="w-5 h-5 text-gray-500">
                       <HumidityIcon />
                     </div>
-                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.humidity}%
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                    <div className="w-5 h-5 text-gray-500">
                       <WindIcon />
                     </div>
-                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.windSpeed} m/s
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                  <div className="flex gap-2 items-center">
+                    <div className="w-6 h-6 text-gray-500">
                       <SunriseIcon />
                     </div>
-                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.sunrise}
                     </span>
                   </div>
-                  <div className="flex gap-1 items-center">
-                    <div className="w-4 h-4 text-gray-500">
+                  <div className="flex gap-2 items-center">
+                    <div className="w-6 h-6 text-gray-500">
                       <SunsetIcon />
                     </div>
-                    <span className="text-xl leading-none  text-gray-500 font-geneva9">
+                    <span className="text-3xl leading-none text-gray-500 font-geneva9">
                       {weather?.sunset}
                     </span>
                   </div>
