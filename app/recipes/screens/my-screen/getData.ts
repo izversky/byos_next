@@ -80,7 +80,7 @@ const COINS: Array<Pick<TokenRow, "id" | "symbol" | "name" | "logoUrl">> = [
 let lastGood: CryptoMultiData | null = null;
 
 function formatNow(): string {
-  return new Date().toLocaleString("ru-RU", {
+  return new Date().toLocaleString("en-US", {
     month: "short",
     day: "numeric",
     hour: "2-digit",

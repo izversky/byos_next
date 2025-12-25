@@ -113,61 +113,61 @@ export default function Screen({
                 <div className="text-[40px] leading-none font-bold text-gray-900">
                   {weather?.temperature}°C
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="font-inter text-xs text-gray-500">
                   Ощущается как {weather?.feelsLike}°C
                 </div>
               </div>
               <div className="flex items-center gap-5">
                 <div className="flex flex-col gap-2 ml-3">
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <TempUp />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
+                    <span className="text-xl leading-none text-gray-500 font-geneva9">
                       {weather?.highTemp}°
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <TempDown />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
+                    <span className="text-xl leading-none text-gray-500 font-geneva9">
                       {weather?.lowTemp}°
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <HumidityIcon />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
+                    <span className="text-xl leading-none text-gray-500 font-geneva9">
                       {weather?.humidity}%
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <WindIcon />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
-                      {weather?.windSpeed} м/с
+                    <span className="text-xl leading-none text-gray-500 font-geneva9">
+                      {weather?.windSpeed} m/s
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <SunriseIcon />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
+                    <span className="text-xl leading-none text-gray-500 font-geneva9">
                       {weather?.sunrise}
                     </span>
                   </div>
                   <div className="flex gap-1 items-center">
-                    <div className="w-5 h-5 text-gray-600">
+                    <div className="w-4 h-4 text-gray-500">
                       <SunsetIcon />
                     </div>
-                    <span className="text-xl leading-none font-semibold text-gray-900">
+                    <span className="text-xl leading-none  text-gray-500 font-geneva9">
                       {weather?.sunset}
                     </span>
                   </div>
@@ -176,11 +176,11 @@ export default function Screen({
             </div>
           </div>
           <div className="flex flex-col items-end">
-            <div className="text-[32px] leading-none font-semibold text-gray-700  font-inter">
+            <div className="text-[32px] leading-none text-gray-700  font-inter">
               {formatDateRu(new Date())}
             </div>
-            <div className="text-[12px] font-semibold text-gray-500  font-inter">
-              Последнее обновление - {updatedAt}
+            <div className="text-[20px] text-gray-500 font-geneva9">
+              Last updated at {updatedAt}
             </div>
           </div>
         </div>
