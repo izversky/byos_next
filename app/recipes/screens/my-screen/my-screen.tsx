@@ -188,8 +188,14 @@ export default function Screen({
           </div>
         </div>
 
+        <div className="flex flex-1 justify-center items-center">
+          <p className="font-inter text-4xl">
+            Тебе надо заняться спортом, тюфяк
+          </p>
+        </div>
+
         {/* Crypto prices */}
-        <div className="flex justify-between gap-3 pt-4 pb-4 border-b-1 border-black">
+        <div className="flex justify-between gap-3 pt-2 border-t-1 border-black">
           {safeTokens.map((t, idx) => {
             const priceUsd = toNum((t as any).priceUsd);
             const change24hPct = toNum((t as any).change24hPct);
@@ -232,11 +238,6 @@ export default function Screen({
               </div>
             );
           })}
-        </div>
-        <div className="flex flex-1 justify-center items-center">
-          <p className="font-inter text-4xl">
-            Тебе надо заняться спортом, тюфяк
-          </p>
         </div>
 
         {/* Crypto prices */}
