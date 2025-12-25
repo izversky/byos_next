@@ -98,7 +98,7 @@ export default function Screen({
   return (
     <PreSatori useDoubling width={width} height={height}>
       <div className="flex h-full w-full flex-col bg-white px-2 py-2">
-        <div className="flex justify-between items-center mb-2 gap-4 border-b-4  border-gray-300 text-nowrap">
+        <div className="flex justify-between items-center gap-4 border-b-1  border-black text-nowrap pb-2">
           <div className="flex items-center gap-3">
             <div className="w-16 h-16 flex items-center justify-center text-gray-500">
               <WeatherIcon
@@ -185,7 +185,7 @@ export default function Screen({
         </div>
 
         {/* Crypto prices */}
-        <div className="flex flex-col justify-around gap-3">
+        <div className="flex justify-between gap-3 pt-4 pb-4 border-b-1 border-black">
           {safeTokens.map((t, idx) => {
             const priceUsd = toNum((t as any).priceUsd);
             const change24hPct = toNum((t as any).change24hPct);
@@ -228,6 +228,11 @@ export default function Screen({
               </div>
             );
           })}
+        </div>
+        <div className="flex flex-1 justify-center items-center">
+          <p className="font-inter text-4xl">
+            Тебе надо заняться спортом, тюфяк
+          </p>
         </div>
 
         {/* Crypto prices */}
