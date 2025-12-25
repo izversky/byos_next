@@ -179,7 +179,11 @@ export default function Screen({
               {formatDateRu(new Date())}
             </div>
             <div className="text-base text-black font-geneva9">
-              Last updated at {updatedAt}
+              Last updated at{" "}
+              {new Date(updatedAt).toLocaleTimeString("ru-RU", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </div>
           </div>
         </div>
