@@ -10,8 +10,14 @@ import {
   MeteoraIcon,
   SolIcon,
 } from "./icons";
-import { WeatherIcon, TasksList } from "./components";
-import { formatDateRu, formatPrice, formatPct, toNum } from "./utils";
+import { WeatherIcon } from "./components";
+import {
+  formatDateRu,
+  formatPrice,
+  formatPct,
+  toNum,
+  getProgressData,
+} from "./utils";
 import type { ScreenProps } from "./types";
 
 export default function Screen({
@@ -24,6 +30,7 @@ export default function Screen({
 }: ScreenProps) {
   const safeTokens = Array.isArray(tokens) ? tokens : [];
   const safeTasks = Array.isArray(tasks) ? tasks : [];
+  const { isExpired, remainingDays, remainingHours } = getProgressData();
 
   return (
     <PreSatori useDoubling width={width} height={height}>
@@ -118,12 +125,82 @@ export default function Screen({
           </div>
         </div>
 
-        <div className="flex flex-1 justify-start items-start">
-          <TasksList tasks={safeTasks} />
-          <div className="flex-1 flex items-center justify-center border-l border-gray-300">
-            <p className="text-gray-300 font-inter text-lg">
-              Резерв для расширения
-            </p>
+        <div className="flex flex-1 justify-start items-start max-h-[350px]">
+          <div className="flex flex-col h-full w-1/2 py-2 overflow-y-hidden pr-2">
+            <div className="flex justify-between items-center mb-2">
+              <div className="text-xl leading-none text-black font-inter">
+                Важно выполнить
+              </div>
+              <div className="text-sm leading-none text-gray-500 font-inter">
+                {tasks.length} задач
+                {tasks.length === 0 || tasks.length > 4
+                  ? ""
+                  : tasks.length === 1
+                    ? "а"
+                    : "и"}
+              </div>
+            </div>
+
+            {safeTasks?.length > 0 ? (
+              <div className="flex flex-col gap-2">
+                {safeTasks.map((task) => (
+                  <div key={task.id} className="flex items-start gap-2">
+                    <div className="w-3 h-3 mt-1.5 shrink-0 rounded-full border border-gray-700" />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-base text-black font-inter wrap-break-word">
+                        {task.title}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-full ">
+                <div className="text-xl text-gray-400 font-inter">
+                  Нет задач
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="flex-1 flex items-center justify-center border-l-1 border-black max-h-[350px] h-full pl-2">
+            <div className="flex flex-col h-full w-full justify-center items-center">
+              {/* Информация об оставшемся времени */}
+              <div className="flex items-center gap-5">
+                <div className="flex flex-col text-center">
+                  <div className="text-5xl font-inter font-bold text-black leading-tight">
+                    {remainingDays}
+                  </div>
+                  <div className="text-xl text-black font-inter">
+                    {remainingDays?.toString().slice(-1) === "1"
+                      ? "день"
+                      : "дней"}
+                  </div>
+                </div>
+
+                <div className="text-lg text-black font-inter">и</div>
+                <div className="flex flex-col text-center">
+                  <div className="text-5xl font-inter font-bold text-black leading-tight">
+                    {remainingHours}
+                  </div>
+                  <div className="text-xl text-black font-inter">
+                    {remainingHours === 1
+                      ? "час"
+                      : remainingHours > 1 && remainingHours < 5
+                        ? "часа"
+                        : "часов"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col mt-6 text-center border-t-1 border-black pt-3 w-full">
+                <div className="text-lg text-gray-600 font-inter">
+                  До события
+                </div>
+                <div className="text-xl text-black font-inter font-semibold">
+                  30 май, 14:30 (UTC+2)
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

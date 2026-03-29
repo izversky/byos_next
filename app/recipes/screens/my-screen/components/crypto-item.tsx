@@ -8,7 +8,7 @@ import { BitcoinIcon, MeteoraIcon, SolIcon } from "../icons";
 import type { TokenRow } from "../types";
 
 interface CryptoItemProps {
-  token: TokenRow;
+	token: TokenRow;
 }
 
 /**
@@ -17,23 +17,23 @@ interface CryptoItemProps {
  * @param className - дополнительные классы
  */
 function CryptoIconBySymbol({
-  symbol,
-  className = "text-gray-500",
+	symbol,
+	className = "text-gray-500",
 }: {
-  symbol: string;
-  className?: string;
+	symbol: string;
+	className?: string;
 }) {
-  const iconProps = { className, width: "100%", height: "auto" };
+	const iconProps = { className, width: "100%", height: "auto" };
 
-  switch (symbol) {
-    case "BTC":
-      return <BitcoinIcon {...iconProps} />;
-    case "MET":
-      return <MeteoraIcon {...iconProps} />;
-    case "SOL":
-    default:
-      return <SolIcon {...iconProps} />;
-  }
+	switch (symbol) {
+		case "BTC":
+			return <BitcoinIcon {...iconProps} />;
+		case "MET":
+			return <MeteoraIcon {...iconProps} />;
+		case "SOL":
+		default:
+			return <SolIcon {...iconProps} />;
+	}
 }
 
 /**
@@ -41,22 +41,22 @@ function CryptoIconBySymbol({
  * Отображает иконку, цену и процент изменения за 24 часа
  */
 export function CryptoItem({ token }: CryptoItemProps) {
-  const priceUsd = toNum(token.priceUsd);
-  const change24hPct = toNum(token.change24hPct);
-  const isUp = (change24hPct ?? 0) >= 0;
-  const arrow = isUp ? "↑" : "↓";
+	const priceUsd = toNum(token.priceUsd);
+	const change24hPct = toNum(token.change24hPct);
+	const isUp = (change24hPct ?? 0) >= 0;
+	const arrow = isUp ? "↑" : "↓";
 
-  return (
-    <div className="flex items-center gap-2">
-      <div className="w-7 h-7">
-        <CryptoIconBySymbol symbol={token.symbol} />
-      </div>
-      <div className="font-inter text-[32px] leading-none text-gray-900">
-        ${formatPrice(priceUsd)}
-      </div>
-      <span className="font-inter text-[16px] text-nowrap rounded-md border border-gray-500 text-gray-500 py-[1] px-[3]">
-        {arrow} {formatPct(change24hPct)}%
-      </span>
-    </div>
-  );
+	return (
+		<div className="flex items-center gap-2">
+			<div className="w-7 h-7">
+				<CryptoIconBySymbol symbol={token.symbol} />
+			</div>
+			<div className="font-inter text-[32px] leading-none text-gray-900">
+				${formatPrice(priceUsd)}
+			</div>
+			<span className="font-inter text-[16px] text-nowrap rounded-md border border-gray-500 text-gray-500 py-[1] px-[3]">
+				{arrow} {formatPct(change24hPct)}%
+			</span>
+		</div>
+	);
 }

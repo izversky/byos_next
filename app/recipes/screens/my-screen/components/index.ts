@@ -4,4 +4,3 @@
 
 export { WeatherIcon } from "./weather-icon";
 export { CryptoItem } from "./crypto-item";
-export { TasksList } from "./tasks-list";

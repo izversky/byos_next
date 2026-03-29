@@ -35,3 +35,6 @@ export {
 
 // Утилиты для работы с Google Tasks
 export { getGoogleTasks } from "./tasks-utils";
+
+// Утилиты для расчёта прогресса
+export { getProgressData, type ProgressData } from "./progress-utils";
