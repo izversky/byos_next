@@ -128,7 +128,7 @@ export default function Screen({
 				<div className="flex flex-1 justify-start items-start max-h-[350px]">
 					<div className="flex flex-col h-full w-1/2 py-2 overflow-y-hidden pr-2">
 						<div className="flex justify-between items-center mb-2">
-							<div className="text-xl leading-none text-black font-inter">
+							<div className="text-2xl leading-none text-black font-inter font-bold">
 								Важно выполнить
 							</div>
 							<div className="text-sm leading-none text-gray-500 font-inter">
@@ -145,9 +145,9 @@ export default function Screen({
 							<div className="flex flex-col gap-2">
 								{safeTasks.map((task) => (
 									<div key={task.id} className="flex items-start gap-2">
-										<div className="w-3 h-3 mt-1.5 shrink-0 rounded-full border border-gray-700" />
+										<div className="w-4 h-4 mt-1.5 shrink-0 rounded-full border border-gray-700" />
 										<div className="flex-1 min-w-0">
-											<div className="text-base text-black font-inter wrap-break-word">
+											<div className="text-xl text-black font-inter wrap-break-word">
 												{task.title}
 											</div>
 										</div>
@@ -156,7 +156,7 @@ export default function Screen({
 							</div>
 						) : (
 							<div className="flex items-center justify-center h-full ">
-								<div className="text-xl text-gray-400 font-inter">
+								<div className="text-3xl text-gray-500 font-inter">
 									Нет задач
 								</div>
 							</div>
