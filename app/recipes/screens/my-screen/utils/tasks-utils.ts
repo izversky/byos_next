@@ -59,12 +59,6 @@ export async function getGoogleTasks(options?: {
 	showHidden?: boolean;
 	maxResults?: number;
 }): Promise<GoogleTask[]> {
-	const token = await getAccessToken();
-	// Если токена нет, возвращаем пустой массив
-	if (!token) {
-		return [];
-	}
-
 	const params = new URLSearchParams({
 		showCompleted: String(true),
 		showHidden: String(options?.showHidden ?? false),
@@ -72,6 +66,9 @@ export async function getGoogleTasks(options?: {
 	});
 
 	try {
+		const token = await getAccessToken();
+		if (!token) return [];
+
 		// Получаем список задач с указанными параметрами
 		const response = await fetch(
 			`https://tasks.googleapis.com/tasks/v1/lists/MXI3dzV3UTRfOUVyVFBuUA/tasks?${params}`,
