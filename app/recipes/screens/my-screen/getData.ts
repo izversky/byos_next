@@ -131,7 +131,5 @@ export async function getScreenData(accessToken?: string): Promise<ScreenData> {
 }
 
 export default async function getData(): Promise<ScreenData> {
-	// Получаем токен из переменных окружения или из других источников
-	const accessToken = "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";
-	return getScreenData(accessToken);
+	return getScreenData();
 }
