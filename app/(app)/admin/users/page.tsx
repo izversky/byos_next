@@ -90,7 +90,7 @@ export default function AdminUsersPage() {
 				},
 			});
 			if (response.data?.users) {
-				setUsers(response.data.users as User[]);
+				setUsers(response.data.users as unknown as User[]);
 			}
 		} catch (_error) {
 			toast.error("Failed to fetch users");
